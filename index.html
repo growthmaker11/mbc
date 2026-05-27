@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MBC+ KDT 교육과정 수강생 모집</title>
+  <style>
+    :root {
+      --bg: #080b16;
+      --bg-soft: #11172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.16);
+      --text: #f6f8ff;
+      --muted: #aeb7d4;
+      --point: #7c5cff;
+      --point2: #00d4ff;
+      --warning: #ffd166;
+      --white: #ffffff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(124, 92, 255, 0.35), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.25), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 11, 22, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .logo span { color: var(--point2); }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 0;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      color: #080b16;
+      background: linear-gradient(135deg, var(--point2), var(--point));
+      box-shadow: 0 14px 36px rgba(0, 212, 255, 0.25);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-ghost {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero {
+      padding: 92px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      border-radius: 999px;
+      color: #c9f8ff;
+      background: rgba(0, 212, 255, 0.08);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -0.075em;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 20px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -80px auto auto;
+      width: 220px;
+      height: 220px;
+      background: rgba(124, 92, 255, 0.38);
+      filter: blur(48px);
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .stat span { color: var(--muted); font-size: 14px; }
+
+    section { padding: 72px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.055em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 460px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+    }
+
+    .card .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(0, 212, 255, 0.12);
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.035em;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .course {
+      border-radius: 30px;
+      padding: 30px;
+      background: linear-gradient(160deg, rgba(124, 92, 255, 0.22), rgba(255,255,255,0.06));
+      border: 1px solid var(--line);
+    }
+
+    .course small {
+      display: inline-flex;
+      color: #dffaff;
+      background: rgba(0, 212, 255, 0.12);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .course h3 {
+      margin: 0 0 16px;
+      font-size: 30px;
+      line-height: 1.22;
+      letter-spacing: -0.05em;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .course-actions {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .course-actions .btn {
+      min-height: 44px;
+      padding: 0 18px;
+      font-size: 14px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #d9def3;
+      font-size: 13px;
+    }
+
+    .proof {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .video-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      margin: 14px 4px 2px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(2, 5, 14, 0.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      width: min(920px, 100%);
+      max-height: min(86vh, 820px);
+      overflow: auto;
+      border-radius: 32px;
+      background: linear-gradient(180deg, #121a31, #080b16);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-head {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 26px 28px;
+      background: rgba(18, 26, 49, 0.96);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-head small {
+      display: inline-flex;
+      color: #dffaff;
+      background: rgba(0, 212, 255, 0.12);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .modal-head h3 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.2;
+      letter-spacing: -0.05em;
+    }
+
+    .modal-close {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .modal-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .modal-summary div {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .modal-summary b {
+      display: block;
+      color: var(--point2);
+      margin-bottom: 4px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .modal-box {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .modal-box h4 {
+      margin: 0 0 12px;
+      font-size: 19px;
+      color: #ffffff;
+    }
+
+    .modal-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .modal-box li { margin: 6px 0; }
+
+    .modal-cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .form-status.success {
+      display: block;
+      color: #d7ffef;
+      background: rgba(30, 214, 142, 0.14);
+      border: 1px solid rgba(30, 214, 142, 0.32);
+    }
+
+    .form-status.error {
+      display: block;
+      color: #ffe0e0;
+      background: rgba(255, 95, 95, 0.14);
+      border: 1px solid rgba(255, 95, 95, 0.32);
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      position: relative;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .step b {
+      display: block;
+      color: var(--point2);
+      margin-bottom: 10px;
+    }
+
+    .form-section {
+      padding-bottom: 110px;
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 28px;
+      align-items: start;
+      background: linear-gradient(160deg, rgba(124, 92, 255, 0.18), rgba(0, 212, 255, 0.08));
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-copy h2 {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.055em;
+    }
+
+    .form-copy p { color: var(--muted); margin: 0 0 24px; }
+
+    .notice {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 209, 102, 0.12);
+      border: 1px solid rgba(255, 209, 102, 0.35);
+      color: #fff4ce;
+      font-size: 15px;
+    }
+
+    form {
+      background: rgba(8, 11, 22, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+    }
+
+    .field { margin-bottom: 18px; }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #e8ecff;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      color: var(--text);
+      padding: 0 15px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 96px;
+      padding-top: 14px;
+      resize: vertical;
+    }
+
+    input::placeholder, textarea::placeholder { color: #7f89aa; }
+
+    select option { color: #111; }
+
+    .checkbox-box {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 209, 102, 0.38);
+      background: rgba(255, 209, 102, 0.1);
+      margin: 20px 0;
+    }
+
+    .checkbox-box input {
+      width: 20px;
+      height: 20px;
+      min-height: auto;
+      margin-top: 3px;
+      accent-color: var(--warning);
+    }
+
+    .checkbox-box label {
+      margin: 0;
+      font-weight: 700;
+      line-height: 1.55;
+      color: #fff7dd;
+    }
+
+    .form-help {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 46px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .floating-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      width: min(720px, calc(100% - 32px));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px 12px 18px;
+      border-radius: 999px;
+      background: rgba(8, 11, 22, 0.88);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      z-index: 100;
+    }
+
+    .floating-cta span {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid, .proof, .form-wrap { grid-template-columns: 1fr; }
+      .cards, .process { grid-template-columns: repeat(2, 1fr); }
+      .modal-summary, .modal-grid { grid-template-columns: 1fr; }
+      .courses { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .hero { padding-top: 62px; }
+      .cards, .process { grid-template-columns: 1fr; }
+      .form-wrap { padding: 20px; border-radius: 28px; }
+      form { padding: 20px; }
+      .floating-cta span { display: none; }
+      .floating-cta { justify-content: center; }
+      .floating-cta .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo">MBC<span>+</span> KDT</a>
+      <nav class="nav-links">
+        <a href="#courses">교육과정</a>
+        <a href="#benefits">특장점</a>
+        <a href="#testimonial-video">후기영상</a>
+        <a href="#process">지원절차</a>
+        <a href="#apply">신청하기</a>
+      </nav>
+      <a href="#apply" class="btn btn-primary">상담 신청</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">비대면 실시간 KDT 훈련과정 · 수강생 모집중</div>
+          <h1>AI와 3D 콘텐츠로<br />커리어를 만드는<br />실무형 교육</h1>
+          <p>
+            생성형 AI, 언리얼엔진, Blender/C4D 기반의 영상 콘텐츠 제작 역량을 실시간 수업과 프로젝트 중심으로 완성하세요.
+          </p>
+          <div class="hero-actions">
+            <a href="#apply" class="btn btn-primary">지금 신청하기</a>
+            <a href="#courses" class="btn btn-ghost">과정 보기</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="교육 핵심 정보">
+          <div class="stat-list">
+            <div class="stat">
+              <strong>Zoom 실시간 수업</strong>
+              <span>평일 업무시간 실시간 참여 필수</span>
+            </div>
+            <div class="stat">
+              <strong>수업 다시보기 제공</strong>
+              <span>복습과 반복 학습을 위한 영상 제공</span>
+            </div>
+            <div class="stat">
+              <strong>개인별 밀착 케어</strong>
+              <span>교육·기술·운영 멘토의 단계별 관리</span>
+            </div>
+            <div class="stat">
+              <strong>교육비 10% 자부담</strong>
+              <span>국민내일배움카드 기반 지원 과정</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="container">
+        <div class="section-head">
+          <h2>비대면이어도<br />실무 경험은 진하게</h2>
+          <p>온라인 실시간 수업, 다시보기, 개인별 피드백, AI LMS 훈련 관리로 초보자도 끝까지 따라갈 수 있는 구조를 설계했습니다.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🎥</div>
+            <h3>온라인 실시간 수업</h3>
+            <p>이동 없이 원하는 장소에서 수강하되, 정해진 시간에 실시간으로 참여하는 몰입형 수업입니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔁</div>
+            <h3>다시보기 영상 제공</h3>
+            <p>수업 후 반복 학습이 가능해 어려운 기능도 복습하며 내 것으로 만들 수 있습니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🤝</div>
+            <h3>개인별 밀착 케어</h3>
+            <p>교육멘토, 기술멘토, 운영멘토가 학습 진행과 문제 해결을 함께 지원합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-head">
+          <h2>모집 과정</h2>
+          <p>AI와 3D 콘텐츠 제작을 연결해 포트폴리오 결과물까지 완성하는 실무 중심 과정입니다.</p>
+        </div>
+
+        <div class="courses">
+          <article class="course">
+            <small>11기 모집중</small>
+            <h3>생성형 AI 활용<br />시네마틱 영상제작 집중과정</h3>
+            <p>C4D와 언리얼엔진 심화 기반으로 시네마틱 영상 제작 역량을 강화합니다.</p>
+            <div class="tags">
+              <span class="tag">생성형 AI</span>
+              <span class="tag">C4D</span>
+              <span class="tag">언리얼엔진 심화</span>
+              <span class="tag">시네마틱 영상</span>
+            </div>
+            <div class="course-actions">
+              <button type="button" class="btn btn-primary" data-modal-target="course11Modal">자세한 과정 안내</button>
+            </div>
+          </article>
+
+          <article class="course">
+            <small>5기 모집중</small>
+            <h3>생성형 AI 활용<br />영상제작을 위한 3D콘텐츠 집중과정</h3>
+            <p>Blender와 언리얼엔진 기본기를 바탕으로 3D 영상 콘텐츠 제작 과정을 학습합니다.</p>
+            <div class="tags">
+              <span class="tag">생성형 AI</span>
+              <span class="tag">Blender</span>
+              <span class="tag">언리얼엔진 기본</span>
+              <span class="tag">3D 콘텐츠</span>
+            </div>
+            <div class="course-actions">
+              <button type="button" class="btn btn-primary" data-modal-target="course5Modal">자세한 과정 안내</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonial-video">
+      <div class="container proof">
+        <div class="section-head" style="display:block; margin-bottom:0;">
+          <h2>수강생이 직접 말하는<br />MBC+ KDT 후기</h2>
+          <p style="margin-top:16px;">과정이 궁금한 예비 수강생이 실제 수강 경험을 영상으로 확인할 수 있도록 후기 영상을 배치했습니다.</p>
+          <div class="hero-actions">
+            <a href="https://youtu.be/sn2znKH9nUA?si=STz4MVk0Vc9wJMBE" target="_blank" rel="noopener" class="btn btn-ghost">유튜브에서 크게 보기</a>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/sn2znKH9nUA"
+              title="MBC+ KDT 수강생 후기 영상"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-caption">수강 전 고민, 수업 방식, 프로젝트 경험이 궁금한 분들이 확인하기 좋은 후기 영상입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>지원 절차</h2>
+          <p>상담 신청 후 입과지원서 작성, 면접 전형, 최종 선발 순서로 진행됩니다.</p>
+        </div>
+        <div class="process">
+          <div class="step"><b>01</b><strong>온라인 상담 신청</strong><p>아래 신청폼을 작성합니다.</p></div>
+          <div class="step"><b>02</b><strong>입과지원서 제출</strong><p>안내받은 지원서를 작성해 제출합니다.</p></div>
+          <div class="step"><b>03</b><strong>인성 면접 전형</strong><p>지원자 대상 면접이 진행됩니다.</p></div>
+          <div class="step"><b>04</b><strong>최종 훈련생 선발</strong><p>선발 후 수강 안내를 받습니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="form-section">
+      <div class="container form-wrap">
+        <div class="form-copy">
+          <h2>지금 상담 신청하고<br />수강 가능 여부를 확인하세요</h2>
+          <p>이름과 연락처를 남겨주시면 과정 상담 및 지원 절차를 안내드립니다.</p>
+          <div class="notice">
+            <strong>신청 전 확인사항</strong><br />
+            본 과정은 평일 업무시간에 Zoom으로 실시간 수업이 진행됩니다. 직장인은 회사에 사전 허락이 필요하며, 교육비는 10%의 자부담이 있습니다.
+          </div>
+        </div>
+
+        <!--
+          Google Sheets 연동 방법:
+          1) 아래 SCRIPT_URL 값을 Google Apps Script 배포 후 받은 웹앱 URL로 교체하세요.
+          2) 구글시트 첫 행에는 아래 순서대로 헤더를 넣는 것을 권장합니다.
+             신청일시 / 이름 / 연락처 / 관심과정 / 문의내용 / 확인동의 / 유입페이지
+        -->
+        <form id="applyForm" action="#" method="post">
+          <div class="field">
+            <label for="name">이름 *</label>
+            <input id="name" name="name" type="text" placeholder="이름을 입력해주세요" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">연락처 *</label>
+            <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" required />
+          </div>
+
+          <div class="field">
+            <label for="course">관심 과정</label>
+            <select id="course" name="course">
+              <option value="">관심 과정을 선택해주세요</option>
+              <option>생성형 AI 활용 시네마틱 영상제작 집중과정</option>
+              <option>생성형 AI 활용 영상제작을 위한 3D콘텐츠 집중과정</option>
+              <option>상담 후 결정</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">문의 내용</label>
+            <textarea id="message" name="message" placeholder="궁금한 점이 있다면 자유롭게 적어주세요"></textarea>
+          </div>
+
+          <div class="checkbox-box">
+            <input id="confirm" name="confirm" type="checkbox" required />
+            <label for="confirm">
+              위 과정은 평일 업무시간에 줌으로 실시간 수업이 진행되기때문에 직장인은 회사에 미리 허락을 받아야 하며, 교육비는 10%의 자부담이 있다는 부분을 확인하였고, 위 과정을 신청합니다.
+            </label>
+          </div>
+
+          <button id="submitButton" class="btn btn-primary" type="submit" style="width:100%;">상담 신청 제출하기</button>
+          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+          <p class="form-help">* 제출 내용은 설정한 Google Apps Script 웹앱을 통해 지정된 구글시트에 저장됩니다.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="course11Modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="course11Title">
+      <div class="modal-head">
+        <div>
+          <small>11기 모집중</small>
+          <h3 id="course11Title">생성형 AI 활용 시네마틱 영상제작 집중과정</h3>
+        </div>
+        <button type="button" class="modal-close" aria-label="팝업 닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-summary">
+          <div><b>과정명</b>리얼타임엔진 기반 AI Media Craft 과정</div>
+          <div><b>수업시간</b>평일 월~금 09:30~18:10</div>
+          <div><b>수업방식</b>Zoom 비대면 실시간 수업</div>
+        </div>
+        <div class="modal-grid">
+          <div class="modal-box">
+            <h4>핵심 커리큘럼</h4>
+            <ul>
+              <li>생성형 AI 기술 이해와 스토리텔링 기획</li>
+              <li>시네마 4D 기본 조작, 모델링, 텍스처, 애니메이션</li>
+              <li>언리얼 에디터, 메가스캔, 에셋 관리, 시뮬레이션</li>
+              <li>리얼리티캡처와 포토그래메트리 기본 실습</li>
+            </ul>
+          </div>
+          <div class="modal-box">
+            <h4>심화 학습</h4>
+            <ul>
+              <li>언리얼 머티리얼 에디터와 PBR 노드 활용</li>
+              <li>블루프린트 기초와 나이아가라 시각효과</li>
+              <li>루멘, 나나이트, 포스트프로세스, 메타휴먼</li>
+              <li>시퀀서 에디터 기반 리얼타임 시네마틱 제작</li>
+            </ul>
+          </div>
+          <div class="modal-box">
+            <h4>프로젝트 예시</h4>
+            <ul>
+              <li>신발 커머셜 광고 제작</li>
+              <li>아동용 애니메이션 제작</li>
+              <li>OTT 드라마 오프닝 시퀀스 제작</li>
+              <li>Post Processing / Niagara Effect / AI Motion Capture 프로젝트</li>
+            </ul>
+          </div>
+          <div class="modal-box">
+            <h4>활용 소프트웨어</h4>
+            <ul>
+              <li>Midjourney</li>
+              <li>Cinema 4D</li>
+              <li>Unreal Engine 5</li>
+              <li>Adobe Photoshop, Illustrator, After Effects</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-cta">
+          <a href="#apply" class="btn btn-primary modal-apply">이 과정 상담 신청하기</a>
+          <button type="button" class="btn btn-ghost modal-close-inline">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="course5Modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="course5Title">
+      <div class="modal-head">
+        <div>
+          <small>5기 모집중</small>
+          <h3 id="course5Title">생성형 AI 활용 영상제작을 위한 3D콘텐츠 집중과정</h3>
+        </div>
+        <button type="button" class="modal-close" aria-label="팝업 닫기">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-summary">
+          <div><b>과정명</b>생성형 AI & 언리얼 엔진 활용 미디어 콘텐츠 크리에이터</div>
+          <div><b>수업시간</b>평일 월~금 09:30~18:10</div>
+          <div><b>수업방식</b>Zoom 비대면 실시간 수업</div>
+        </div>
+        <div class="modal-grid">
+          <div class="modal-box">
+            <h4>핵심 커리큘럼</h4>
+            <ul>
+              <li>AI를 활용한 영상 기획, 연출, 캐릭터 디자인</li>
+              <li>Midjourney, Stable Diffusion, Adobe 생성형 AI 활용</li>
+              <li>프리미어·애프터이펙트 기반 AI 영상편집과 자막 제작</li>
+              <li>FOOH 영상, 타이틀/로고 애니메이션, AI Sound 활용</li>
+            </ul>
+          </div>
+          <div class="modal-box">
+            <h4>3D 콘텐츠 제작</h4>
+            <ul>
+              <li>Blender 설치, 인터페이스, 기본 조작</li>
+              <li>모델링, 스컬프팅, 리토폴로지, 머티리얼·텍스처·셰이더</li>
+              <li>UV 언랩, Reality Capture, 라이팅·렌더링</li>
+              <li>리깅, Mixamo, Marvelous Designer 의상 제작</li>
+            </ul>
+          </div>
+          <div class="modal-box">
+            <h4>언리얼·VR 학습</h4>
+            <ul>
+              <li>언리얼 엔진 기본 인터페이스와 실무 활용</li>
+              <li>Landscape, Foliage, Marketplace, Megascan 활용</li>
+              <li>머티리얼 최적화, 시퀀서, 메타휴먼, 블루프린트</li>
+              <li>나이아가라 이펙트와 VR 콘텐츠 셋업</li>
+            </ul>
+          </div>
+          <div class="modal-box">
+            <h4>프로젝트 예시</h4>
+            <ul>
+              <li>AI 활용 Cinematic 3D 영화/드라마 타이틀 시퀀스</li>
+              <li>AI 활용 Cinematic 아이돌 뮤직비디오</li>
+              <li>제품 커머셜 영상 제작</li>
+              <li>3D 캐릭터 모델 활용 커머셜 광고 영상 제작</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-cta">
+          <a href="#apply" class="btn btn-primary modal-apply">이 과정 상담 신청하기</a>
+          <button type="button" class="btn btn-ghost modal-close-inline">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-cta">
+    <span>평일 실시간 수업 · 교육비 10% 자부담 확인 후 신청</span>
+    <a href="#apply" class="btn btn-primary">신청폼으로 이동</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>MBC+ KDT 비대면 훈련과정</strong><br />
+      상담 문의: 1599-1653 · 지원서 제출: lleonis@naver.com<br />
+      본 페이지는 수강생 모집용 랜딩페이지 예시입니다.
+    </div>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwPcz-nemX5dmcLCwSKu_-jyfTByoIcl9bz8ErzDSXwxkvCXY6_y-BDPcGJ-PO-827h_A/exec";
+
+    const applyForm = document.getElementById("applyForm");
+    const submitButton = document.getElementById("submitButton");
+    const formStatus = document.getElementById("formStatus");
+
+    const openModalButtons = document.querySelectorAll("[data-modal-target]");
+    const modalOverlays = document.querySelectorAll(".modal-overlay");
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    openModalButtons.forEach((button) => {
+      button.addEventListener("click", () => openModal(button.dataset.modalTarget));
+    });
+
+    modalOverlays.forEach((modal) => {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal || event.target.classList.contains("modal-close") || event.target.classList.contains("modal-close-inline")) {
+          closeModal(modal);
+        }
+      });
+
+      modal.querySelectorAll(".modal-apply").forEach((link) => {
+        link.addEventListener("click", () => closeModal(modal));
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        modalOverlays.forEach((modal) => {
+          if (modal.classList.contains("active")) closeModal(modal);
+        });
+      }
+    });
+
+    applyForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      if (SCRIPT_URL.includes("PASTE_YOUR")) {
+        formStatus.className = "form-status error";
+        formStatus.textContent = "관리자 설정이 필요합니다. Google Apps Script 웹앱 URL을 SCRIPT_URL에 입력해주세요.";
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "제출 중...";
+      formStatus.className = "form-status";
+      formStatus.textContent = "";
+
+      const formData = new FormData(applyForm);
+      const payload = new URLSearchParams();
+      payload.append("timestamp", new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
+      payload.append("name", formData.get("name") || "");
+      payload.append("phone", formData.get("phone") || "");
+      payload.append("course", formData.get("course") || "");
+      payload.append("message", formData.get("message") || "");
+      payload.append("confirm", formData.get("confirm") === "on" ? "동의" : "미동의");
+      payload.append("pageUrl", window.location.href);
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          body: payload.toString()
+        });
+
+        formStatus.className = "form-status success";
+        formStatus.textContent = "신청이 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.";
+        applyForm.reset();
+      } catch (error) {
+        formStatus.className = "form-status error";
+        formStatus.textContent = "제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "상담 신청 제출하기";
+      }
+    });
+  </script>
+</body>
+</html>
