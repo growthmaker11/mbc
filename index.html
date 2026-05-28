@@ -57,12 +57,16 @@
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
     }
 
-    .logo span { color: var(--point2); }
+    .logo img {
+      display: block;
+      width: 116px;
+      height: auto;
+    }
 
     .nav-links {
       display: flex;
@@ -671,7 +675,9 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#top" class="logo">MBC<span>+</span> KDT</a>
+      <a href="#top" class="logo" aria-label="MBC+ KDT 홈으로 이동">
+        <img src="images/mbc-logo.png" alt="MBC+" />
+      </a>
       <nav class="nav-links">
         <a href="#courses">교육과정</a>
         <a href="#benefits">특장점</a>
