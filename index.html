@@ -246,6 +246,180 @@
 
     .card p { margin: 0; color: var(--muted); }
 
+    .support-section {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(124, 92, 255, 0.08));
+    }
+
+    .support-intro {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .support-intro h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.16;
+      letter-spacing: -0.055em;
+    }
+
+    .support-intro h2 span { color: var(--point2); }
+
+    .support-intro p {
+      margin: 14px auto 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .support-block {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .support-block-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .support-number {
+      color: #c69cff;
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .support-block-title h3 {
+      margin: 0 0 6px;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.25;
+      letter-spacing: -0.045em;
+    }
+
+    .support-block-title h3 span { color: #b78cff; }
+
+    .support-block-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .logo-grid.small {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .logo-card {
+      min-height: 92px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.94);
+      color: #1a2235;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: -0.03em;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .benefit-item {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+    }
+
+    .benefit-item b {
+      display: block;
+      color: #c69cff;
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .benefit-item h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+    }
+
+    .benefit-item h3 span { color: #b78cff; }
+
+    .benefit-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .partner-section {
+      margin-top: 42px;
+      padding: 34px;
+      border-radius: 34px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+    }
+
+    .partner-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .partner-title small {
+      color: var(--muted);
+      letter-spacing: 0.35em;
+      font-size: 11px;
+    }
+
+    .partner-title h3 {
+      margin: 6px 0 0;
+      font-size: clamp(26px, 3vw, 38px);
+      letter-spacing: -0.04em;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .partner-card {
+      min-height: 74px;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.94);
+      color: #1a2235;
+      font-weight: 900;
+      text-align: center;
+      font-size: 14px;
+      letter-spacing: -0.025em;
+    }
+
+    .partner-note {
+      margin: 18px 0 0;
+      text-align: right;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .courses {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -655,6 +829,8 @@
       .cards, .process { grid-template-columns: repeat(2, 1fr); }
       .modal-summary, .modal-grid { grid-template-columns: 1fr; }
       .courses { grid-template-columns: 1fr; }
+      .benefit-grid, .logo-grid.small, .partner-grid { grid-template-columns: repeat(2, 1fr); }
+      .logo-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
       .section-head { display: block; }
       .section-head p { margin-top: 12px; }
@@ -664,6 +840,8 @@
       .container { width: min(100% - 28px, 1120px); }
       .hero { padding-top: 62px; }
       .cards, .process { grid-template-columns: 1fr; }
+      .benefit-grid, .logo-grid, .logo-grid.small, .partner-grid { grid-template-columns: 1fr; }
+      .support-block, .partner-section { padding: 22px; }
       .form-wrap { padding: 20px; border-radius: 28px; }
       form { padding: 20px; }
       .floating-cta span { display: none; }
@@ -681,6 +859,7 @@
       <nav class="nav-links">
         <a href="#courses">교육과정</a>
         <a href="#benefits">특장점</a>
+        <a href="#support-program">혜택</a>
         <a href="#testimonial-video">후기영상</a>
         <a href="#process">지원절차</a>
         <a href="#apply">신청하기</a>
@@ -750,6 +929,111 @@
             <h3>개인별 밀착 케어</h3>
             <p>교육멘토, 기술멘토, 운영멘토가 학습 진행과 문제 해결을 함께 지원합니다.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="support-program" class="support-section">
+      <div class="container">
+        <div class="support-intro">
+          <h2>MBC+ 비대면 과정을 선택한 훈련생을 위해<br /><span>M+Learning이 준비한 혜택</span></h2>
+          <p>우수교육생 해외 연수부터 인턴십, 취업연계, 학습 장비 및 장려금까지 수료 후 커리어 연결을 고려한 혜택을 안내합니다.</p>
+        </div>
+
+        <div class="support-block">
+          <div class="support-block-title">
+            <div class="support-number">1.</div>
+            <div>
+              <h3>기수별 <span>우수교육생</span> 일본 기업 연수</h3>
+              <p>커버, 토에이, 탤런, 코나미, 히키, TV아사히 등 일본 분야별 기업으로 연수 기회를 제공할 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="logo-grid">
+            <div class="logo-card">teamLab</div>
+            <div class="logo-card">HIKKY</div>
+            <div class="logo-card">TOEI ANIMATION</div>
+            <div class="logo-card">KONAMI</div>
+            <div class="logo-card">COVER</div>
+            <div class="logo-card">tv asahi</div>
+          </div>
+        </div>
+
+        <div class="support-block">
+          <div class="support-block-title">
+            <div class="support-number">2.</div>
+            <div>
+              <h3>분기별 <span>우수교육생</span> 인턴십</h3>
+              <p>국내외 주요 기업에서 인턴십 기회를 제공하며, 학습 성과와 기업 사정에 따라 변동될 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="logo-grid small">
+            <div class="logo-card">MBC+</div>
+            <div class="logo-card">DEXTER STUDIOS</div>
+            <div class="logo-card">GIANTSTEP</div>
+            <div class="logo-card">STOIC ENTERTAINMENT</div>
+            <div class="logo-card">ICONIX</div>
+            <div class="logo-card">STUDIO GALE</div>
+            <div class="logo-card">teamLab<br /><small>해외</small></div>
+            <div class="logo-card">360Channel<br /><small>해외</small></div>
+          </div>
+        </div>
+
+        <div class="benefit-grid">
+          <div class="benefit-item">
+            <b>3.</b>
+            <h3><span>채용 가산점</span> 부여</h3>
+            <p>MBC플러스 신규 채용 시 가산점 부여 및 학습 우수자 인턴십 우선 선발 기회를 제공합니다.</p>
+          </div>
+          <div class="benefit-item">
+            <b>4.</b>
+            <h3>협력기업 <span>취업연계</span></h3>
+            <p>LG전자 VPA사업부문 지원 시 가산점 부여, 덱스터 인턴십 선발 및 협력사 채용 연계를 지원합니다.</p>
+          </div>
+          <div class="benefit-item">
+            <b>5.</b>
+            <h3>교육용 <span>노트북 지원</span></h3>
+            <p>교육용 고성능 노트북 1인 1대 지원을 원칙으로 하며, 부품 수급에 따라 사양은 변동될 수 있습니다.</p>
+          </div>
+          <div class="benefit-item">
+            <b>6.</b>
+            <h3><span>훈련장려금</span> 지급</h3>
+            <p>훈련장려금 최대 300,000원 지급 가능, 국민취업지원제도 신청 시 최대 900,000원까지 지원 가능합니다.</p>
+          </div>
+        </div>
+
+        <div class="partner-section">
+          <div class="partner-title">
+            <small>RECRUITMENT PARTNERSHIP</small>
+            <h3>- 주요채용협약기업 -</h3>
+          </div>
+          <div class="partner-grid">
+            <div class="partner-card">GIANTSTEP</div>
+            <div class="partner-card">DEXTER STUDIOS</div>
+            <div class="partner-card">LUNOSOFT</div>
+            <div class="partner-card">DELICIOUS GAMES</div>
+            <div class="partner-card">큰다리 GAMES</div>
+            <div class="partner-card">BUFF STUDIO</div>
+            <div class="partner-card">AN GAMES</div>
+            <div class="partner-card">ARTLAB</div>
+            <div class="partner-card">INNOSIMULATION</div>
+            <div class="partner-card">STOIC</div>
+            <div class="partner-card">POCKET MEMORY</div>
+            <div class="partner-card">ZENSTEM</div>
+            <div class="partner-card">Visual Light</div>
+            <div class="partner-card">VICTORIA PRODUCTIONS</div>
+            <div class="partner-card">WEFUN</div>
+            <div class="partner-card">PUDDING</div>
+            <div class="partner-card">CREATIVE SUMM</div>
+            <div class="partner-card">Toonimotion</div>
+            <div class="partner-card">hello</div>
+            <div class="partner-card">EVR STUDIO</div>
+            <div class="partner-card">SKONEC</div>
+            <div class="partner-card">d-carrick</div>
+            <div class="partner-card">Eggtart</div>
+            <div class="partner-card">SONICW</div>
+            <div class="partner-card">FINAL FLOW</div>
+          </div>
+          <p class="partner-note">외 다수 기업과 협약 진행</p>
         </div>
       </div>
     </section>
