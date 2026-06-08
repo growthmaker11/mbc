@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 에이전트 실무과정 | KDT 랜딩페이지</title>
+  <meta name="description" content="AI Agent 기반 업무 자동화 시스템 구축 실무과정 상담신청 랜딩페이지" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070b16;
+      --bg2:#0b1224;
+      --card:#111a30;
+      --card2:#0f1729;
+      --line:rgba(255,255,255,.12);
+      --text:#f7fbff;
+      --muted:#aeb9cc;
+      --primary:#44e1ff;
+      --primary2:#7c5cff;
+      --accent:#00ffb2;
+      --danger:#ff6b8a;
+      --yellow:#ffe071;
+      --shadow:0 24px 80px rgba(0,0,0,.35);
+      --radius:26px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(68,225,255,.18), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(124,92,255,.24), transparent 28%),
+        linear-gradient(180deg,#050816 0%,#081225 38%,#050816 100%);
+      color:var(--text);
+      word-break:keep-all;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:blur(18px);
+      background:rgba(5,8,22,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.03em}
+    .logo-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:#06101f;font-weight:900}
+    .nav-menu{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:15px}
+    .nav-menu a:hover{color:white}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 22px;border-radius:999px;font-weight:800;border:1px solid rgba(255,255,255,.14);transition:.25s;cursor:pointer;white-space:nowrap}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#031021;border:0;box-shadow:0 10px 34px rgba(68,225,255,.22)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 46px rgba(68,225,255,.3)}
+    .btn-ghost{background:rgba(255,255,255,.06);color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+    .hero{position:relative;overflow:hidden;padding:86px 0 74px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid rgba(68,225,255,.28);background:rgba(68,225,255,.08);border-radius:999px;color:#baf5ff;font-size:14px;font-weight:800;margin-bottom:22px}
+    .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 8px rgba(0,255,178,.12)}
+    h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-.07em;margin:0 0 22px;font-weight:900}
+    .gradient-text{background:linear-gradient(90deg,#fff 0%,#72eaff 52%,#b2a3ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:20px;line-height:1.72;color:#d7dfef;margin:0 0 30px;max-width:720px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:680px}
+    .stat{padding:18px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.055)}
+    .stat b{display:block;font-size:24px;color:#fff;margin-bottom:6px}
+    .stat span{color:var(--muted);font-size:13px;line-height:1.4}
+    .visual{position:relative;min-height:560px;border-radius:36px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(160deg,rgba(68,225,255,.11),rgba(124,92,255,.15) 42%,rgba(0,255,178,.07));box-shadow:var(--shadow);overflow:hidden}
+    .orb{position:absolute;border-radius:999px;filter:blur(1px)}
+    .orb.one{width:260px;height:260px;right:-80px;top:-80px;background:rgba(68,225,255,.22)}
+    .orb.two{width:220px;height:220px;left:-70px;bottom:-70px;background:rgba(124,92,255,.24)}
+    .dashboard{position:absolute;inset:34px;border-radius:28px;background:rgba(5,8,22,.78);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(18px);padding:24px;display:flex;flex-direction:column;gap:18px}
+    .dash-top{display:flex;align-items:center;justify-content:space-between}
+    .dots{display:flex;gap:8px}.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.28)}
+    .chip{font-size:12px;font-weight:800;color:#04111f;background:var(--accent);padding:7px 10px;border-radius:999px}
+    .screen{border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--line);padding:22px;min-height:250px}
+    .node{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);margin-bottom:12px}
+    .node-icon{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:#05101e;font-weight:900}
+    .node strong{display:block;font-size:15px}.node small{display:block;color:var(--muted);margin-top:3px}
+    .flow{height:74px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+    .flow div{border:1px dashed rgba(68,225,255,.32);border-radius:16px;display:grid;place-items:center;color:#c9f8ff;font-weight:800;font-size:13px;background:rgba(68,225,255,.05)}
+    .codebox{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7;color:#a6ffdd;background:rgba(0,0,0,.24);border-radius:18px;padding:18px;border:1px solid rgba(0,255,178,.16)}
+
+    section{padding:90px 0}.section-head{margin-bottom:36px;text-align:center}.section-head .kicker{color:var(--primary);font-weight:900;margin-bottom:10px}.section-head h2{font-size:clamp(32px,4vw,52px);line-height:1.15;letter-spacing:-.055em;margin:0}.section-head p{color:var(--muted);font-size:18px;line-height:1.7;margin:16px auto 0;max-width:760px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 14px 40px rgba(0,0,0,.16)}
+    .card h3{font-size:23px;letter-spacing:-.035em;margin:0 0 12px}.card p{color:var(--muted);line-height:1.72;margin:0}.num{width:42px;height:42px;border-radius:14px;background:rgba(68,225,255,.12);color:#8cf1ff;display:grid;place-items:center;font-weight:900;margin-bottom:18px}
+    .dark-band{background:rgba(0,0,0,.18);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .roadmap{display:grid;gap:16px}.step{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:start;padding:26px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.055)}
+    .step-label{color:#05101e;background:linear-gradient(135deg,var(--primary),var(--accent));padding:10px 12px;border-radius:999px;font-weight:900;text-align:center}.step h3{margin:0 0 10px;font-size:24px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tags span{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);color:#dce5f5;font-size:13px;font-weight:700}
+    .project-card{position:relative;overflow:hidden}.project-card:before{content:"";position:absolute;inset:auto -40px -70px auto;width:160px;height:160px;border-radius:50%;background:rgba(68,225,255,.13)}
+    .benefit{display:flex;gap:16px;align-items:flex-start}.benefit-icon{flex:0 0 52px;height:52px;border-radius:18px;background:rgba(124,92,255,.18);display:grid;place-items:center;font-size:24px}.price{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}.price-box{padding:34px;border-radius:30px;background:linear-gradient(135deg,rgba(68,225,255,.14),rgba(124,92,255,.18));border:1px solid rgba(255,255,255,.15)}.price-box .big{font-size:44px;font-weight:900;letter-spacing:-.05em}.price-box .free{font-size:34px;color:var(--accent);font-weight:900;margin-top:8px}.notice{color:#d8e3f4;line-height:1.75}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.timeline .card{padding:24px}.faq{max-width:920px;margin:0 auto}.faq-item{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.05);margin-bottom:12px;overflow:hidden}.faq-q{width:100%;padding:22px 24px;background:transparent;color:#fff;border:0;text-align:left;font-size:18px;font-weight:900;display:flex;justify-content:space-between;gap:16px;cursor:pointer}.faq-a{display:none;padding:0 24px 22px;color:var(--muted);line-height:1.7}.faq-item.active .faq-a{display:block}.faq-item.active .faq-q span:last-child{transform:rotate(45deg)}
+    .form-section{padding-bottom:110px}.form-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}.form-panel{background:#fff;color:#101828;border-radius:30px;padding:34px;box-shadow:var(--shadow)}.form-panel h2{margin:0 0 10px;font-size:32px;letter-spacing:-.045em}.form-panel p{color:#667085;line-height:1.65;margin:0 0 24px}.field{margin-bottom:15px}.field label{display:block;font-weight:800;margin-bottom:8px}.field input,.field select,.field textarea{width:100%;border:1px solid #d0d5dd;border-radius:14px;padding:15px;font:inherit;outline:none}.field textarea{min-height:110px;resize:vertical}.check{display:flex;gap:10px;align-items:flex-start;color:#475467;font-size:14px;line-height:1.5;margin:16px 0}.submit{width:100%;border:0;padding:18px;border-radius:16px;background:linear-gradient(135deg,#101828,#344054);color:#fff;font-size:18px;font-weight:900;cursor:pointer}.submit:hover{filter:brightness(1.08)}
+    .side-cta{border-radius:30px;padding:34px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid var(--line)}.side-cta h3{font-size:34px;letter-spacing:-.05em;margin:0 0 20px}.side-cta ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}.side-cta li{padding:16px;border-radius:18px;background:rgba(255,255,255,.06);color:#dfe8f8;border:1px solid rgba(255,255,255,.1)}.phone-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.call-mini{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#031021;font-weight:900;font-size:14px;white-space:nowrap}
+    footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:14px}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.floating{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(5,8,22,.86);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:12px 18px;display:none}.floating-inner{max-width:760px;margin:0 auto;display:flex;gap:10px}.floating .btn{flex:1;padding:14px}
+    .modal{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.68);display:none;align-items:center;justify-content:center;padding:24px}.modal.active{display:flex}.modal-card{width:min(760px,100%);max-height:80vh;overflow:auto;background:#fff;color:#101828;border-radius:24px;padding:30px}.modal-card h3{margin-top:0}.modal-card p,.modal-card li{color:#475467;line-height:1.7}.close-modal{float:right;border:0;background:#f2f4f7;border-radius:999px;padding:8px 12px;font-weight:900;cursor:pointer}
+    @media(max-width:980px){.hero-grid,.grid-3,.grid-2,.price,.form-wrap{grid-template-columns:1fr}.visual{min-height:500px}.timeline{grid-template-columns:repeat(2,1fr)}.nav-menu{display:none}.step{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr 1fr}.floating{display:block}body{padding-bottom:76px}}
+    @media(max-width:560px){.wrap{width:min(100% - 26px,var(--max))}.hero{padding:56px 0}.hero-stats,.timeline{grid-template-columns:1fr}.visual{min-height:430px}.dashboard{inset:18px;padding:16px}.flow{grid-template-columns:1fr;height:auto}.section{padding:68px 0}section{padding:68px 0}.card{padding:22px}.price-box .big{font-size:34px}.logo span{display:none}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top" aria-label="AI Lab 홈"><span class="logo-mark">AI</span><span>AI Agent Lab</span></a>
+      <div class="nav-menu">
+        <a href="#why">왜 AI Agent?</a>
+        <a href="#curriculum">커리큘럼</a>
+        <a href="#project">프로젝트</a>
+        <a href="#benefit">혜택</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="#apply">상담신청</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> K-Digital Training · 실시간 비대면 과정</div>
+        <h1>AI를 사용하는 사람에서<br><span class="gradient-text">AI에게 일을 시키는 사람</span>으로</h1>
+        <p class="hero-copy">AI Agent 기반 업무 자동화 시스템을 직접 설계하고, 미디어 콘텐츠·마케팅·데이터 업무에 적용 가능한 실무형 포트폴리오를 완성하세요.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#apply">빠른 상담신청</a>
+          <a class="btn btn-ghost" href="#curriculum">커리큘럼 보기</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>6개월</b><span>집중 실무 교육 과정</span></div>
+          <div class="stat"><b>09:30-18:20</b><span>평일 실시간 ZOOM 수업</span></div>
+          <div class="stat"><b>0원~</b><span>국비지원 대상자 기준</span></div>
+        </div>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="orb one"></div><div class="orb two"></div>
+        <div class="dashboard">
+          <div class="dash-top"><div class="dots"><i></i><i></i><i></i></div><span class="chip">Agent Running</span></div>
+          <div class="screen">
+            <div class="node"><div class="node-icon">1</div><div><strong>요청 이해</strong><small>목표·조건·데이터를 분석</small></div></div>
+            <div class="node"><div class="node-icon">2</div><div><strong>툴 연결</strong><small>API, DB, 문서, 검색 기능 호출</small></div></div>
+            <div class="node"><div class="node-icon">3</div><div><strong>업무 자동화</strong><small>보고서·콘텐츠·응대 결과 생성</small></div></div>
+            <div class="flow"><div>LLM</div><div>Workflow</div><div>Data</div></div>
+          </div>
+          <div class="codebox">agent.task("뉴스 수집")<br>agent.analyze("트렌드 요약")<br>agent.create("콘텐츠 기획안")<br>agent.send("보고서 자동화")</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">WHY NOW</div>
+        <h2>AI는 답변 도구를 넘어<br>업무를 수행하는 시스템으로 바뀌고 있습니다</h2>
+        <p>단순히 ChatGPT를 잘 쓰는 수준을 넘어, 여러 도구와 데이터를 연결해 실제 업무 흐름을 자동화하는 역량이 중요해졌습니다.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="num">01</div><h3>반복 업무 자동화</h3><p>자료 조사, 정리, 보고서 작성, 콘텐츠 제작처럼 시간이 오래 걸리는 업무를 AI Agent 워크플로우로 줄입니다.</p></div>
+        <div class="card"><div class="num">02</div><h3>서비스 기획 역량</h3><p>AI 도구를 조합해 챗봇, 추천 시스템, 자동 태깅, 검색 에이전트 등 실제 서비스 형태로 기획합니다.</p></div>
+        <div class="card"><div class="num">03</div><h3>포트폴리오 완성</h3><p>수료 후 보여줄 수 있는 결과물을 목표로 프로젝트를 설계하고 실무형 산출물을 만듭니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-band">
+    <div class="wrap grid-2">
+      <div class="card">
+        <h3>이런 분께 추천합니다</h3>
+        <p>AI 기반 서비스나 SaaS를 기획해보고 싶은 분, 업무 자동화로 생산성을 높이고 싶은 분, 취업 포트폴리오가 필요한 비전공자·취업준비생에게 적합합니다.</p>
+      </div>
+      <div class="card">
+        <h3>개발자만을 위한 과정이 아닙니다</h3>
+        <p>모델을 처음부터 만드는 교육보다, AI 모델·도구·데이터를 연결해 실제 업무에 활용하는 방향에 초점을 둡니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="curriculum">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">CURRICULUM</div>
+        <h2>기초부터 심화 프로젝트까지<br>단계별 AI Agent 로드맵</h2>
+      </div>
+      <div class="roadmap">
+        <div class="step">
+          <div class="step-label">STEP 1 · 기초</div>
+          <div><h3>AI Agent를 위한 LLM 기초</h3><p>생성형 AI 기본 개념, 미디어 콘텐츠 이해, 프롬프트 엔지니어링, LLM 프로그래밍 입문을 학습합니다.</p><div class="tags"><span>AI 리터러시</span><span>프롬프트</span><span>Python 입문</span><span>콘텐츠 생성기</span></div></div>
+        </div>
+        <div class="step">
+          <div class="step-label">STEP 2 · 응용</div>
+          <div><h3>AI Agent 프로그래밍</h3><p>미디어 데이터 학습, LLM 모델 활용, AI Agent 개발, 서비스형 챗봇 구현을 통해 실무 응용력을 만듭니다.</p><div class="tags"><span>LangChain</span><span>데이터 분석</span><span>AI 챗봇</span><span>자동 보고서</span></div></div>
+        </div>
+        <div class="step">
+          <div class="step-label">STEP 3 · 심화</div>
+          <div><h3>AI Agent 심화 프로그래밍</h3><p>LLMOps, 검색 증강 생성, 멀티 에이전트, 트렌드 예측 서비스 등 고급 AI 시스템 설계 역량을 강화합니다.</p><div class="tags"><span>RAG</span><span>LLMOps</span><span>Multi Agent</span><span>서비스 배포</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project" class="dark-band">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">PORTFOLIO</div>
+        <h2>실무 기반 프로젝트로<br>보여줄 수 있는 결과물을 만듭니다</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card project-card"><h3>이메일 자동 수정 에이전트</h3><p>작성한 메일을 톤앤매너에 맞게 수정하고 Gmail 임시보관함에 저장하는 자동화 시스템</p><div class="tags"><span>Gmail API</span><span>LLM</span><span>Web App</span></div></div>
+        <div class="card project-card"><h3>지식 아카이브 에이전트</h3><p>뉴스·논문·메모를 구조화하고 태그를 달아 검색 가능한 지식 저장소로 만드는 시스템</p><div class="tags"><span>RAG</span><span>Chroma DB</span><span>자동 태깅</span></div></div>
+        <div class="card project-card"><h3>데일리 트렌드 가공 에이전트</h3><p>RSS와 뉴스 데이터를 수집해 관심사별로 요약하고 조간 리포트처럼 발행하는 시스템</p><div class="tags"><span>RSS</span><span>Tavily</span><span>리포트 자동화</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefit">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">BENEFIT</div>
+        <h2>학습에 집중할 수 있도록<br>교육·장비·취업까지 지원</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card benefit"><div class="benefit-icon">💻</div><div><h3>노트북 대여</h3><p>최종 합격자 대상 고성능 노트북 무상 대여</p></div></div>
+        <div class="card benefit"><div class="benefit-icon">👥</div><div><h3>밀착 멘토링</h3><p>교육·운영·기술 멘토 기반 학습 관리</p></div></div>
+        <div class="card benefit"><div class="benefit-icon">🎯</div><div><h3>취업 컨설팅</h3><p>수료 후 이력서·포트폴리오·면접 컨설팅</p></div></div>
+      </div>
+      <div class="price" style="margin-top:22px">
+        <div class="price-box">
+          <div>훈련비</div>
+          <div class="big">18,876,000원</div>
+          <div class="free">자비부담금 0원~</div>
+        </div>
+        <div class="notice">국민내일배움카드 및 KDT 수강 조건에 따라 지원 범위가 달라질 수 있습니다. 국취제 참여 시 훈련장려금은 개인별 요건에 따라 상이할 수 있으므로 상담을 통해 확인하세요.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-band">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">PROCESS</div><h2>상담신청부터 최종선발까지</h2></div>
+      <div class="timeline">
+        <div class="card"><div class="num">1</div><h3>교육상담</h3><p>하단 상담신청 후 전화상담 진행</p></div>
+        <div class="card"><div class="num">2</div><h3>지원서 제출</h3><p>입과지원서 양식 안내 및 제출</p></div>
+        <div class="card"><div class="num">3</div><h3>인터뷰</h3><p>ZOOM 화상 인터뷰로 수강 의지 확인</p></div>
+        <div class="card"><div class="num">4</div><h3>최종선발</h3><p>HRD 수강신청 및 학습 준비</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">FAQ</div><h2>자주 묻는 질문</h2></div>
+      <div class="faq">
+        <div class="faq-item active"><button class="faq-q"><span>비전공자도 신청할 수 있나요?</span><span>＋</span></button><div class="faq-a">네. 국민내일배움카드 발급이 가능하고 수업에 적극적으로 참여할 수 있다면 전공과 관계없이 상담 신청이 가능합니다.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>재직자도 가능한가요?</span><span>＋</span></button><div class="faq-a">평일 09:30~18:20 실시간 출석이 필요한 풀타임 과정이므로, 업무시간 수업 참여가 가능한 경우에만 신청을 권장합니다.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>카메라를 켜야 하나요?</span><span>＋</span></button><div class="faq-a">실시간 출석 확인이 필요한 비대면 수업이므로 카메라 사용이 필요할 수 있습니다.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>노트북이 없어도 되나요?</span><span>＋</span></button><div class="faq-a">최종 합격자에게 훈련 기간 동안 노트북 대여가 제공될 수 있습니다. 세부 조건은 상담 시 확인하세요.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply" class="form-section">
+    <div class="wrap form-wrap">
+      <div class="side-cta">
+        <div class="eyebrow"><span class="pulse"></span> 모집 정원 마감 전 상담 권장</div>
+        <h3>AI가 움직이는 시대,<br>전략은 AI Agent입니다.</h3>
+        <ul>
+          <li>과정명: AI Agent를 활용한 디지털 미디어 콘텐츠 Innovator</li>
+          <li>교육기간: 2026.06.18 ~ 2026.12.18</li>
+          <li>교육방식: 비대면 ZOOM 실시간 강의</li>
+          <li class="phone-row"><span>문의전화: <strong>010-5394-2535</strong></span><a class="call-mini" href="tel:01053942535" aria-label="010-5394-2535로 전화걸기">전화걸기</a></li>
+        </ul>
+      </div>
+      <form class="form-panel" id="leadForm">
+        <h2>빠른상담 신청하기</h2>
+        <p>입력하신 정보로 교육과정 상담 안내를 도와드립니다.</p>
+        <div class="field"><label for="name">이름</label><input id="name" name="name" required placeholder="홍길동" /></div>
+        <div class="field"><label for="phone">연락처</label><input id="phone" name="phone" required placeholder="010-0000-0000" /></div>
+        <div class="field"><label for="email">이메일</label><input id="email" name="email" type="email" placeholder="example@email.com" /></div>
+        <div class="field"><label for="status">현재 상태</label><select id="status" name="status"><option>취업준비생</option><option>대학생</option><option>재직자</option><option>기타</option></select></div>
+        <div class="field"><label for="memo">문의내용</label><textarea id="memo" name="memo" placeholder="상담 가능 시간 또는 궁금한 점을 적어주세요."></textarea></div>
+        <label class="check"><input type="checkbox" required /> <span>평일 09:30~18:20 실시간 비대면 수업 과정임을 확인했습니다.</span></label>
+        <label class="check"><input type="checkbox" required /> <span>개인정보 수집 및 이용에 동의합니다. <a href="https://docs.google.com/document/d/196cGMyRuisZ6V_8gNBiBOMHLb6yCg9SSd3q0jUxZXKA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:#344cff;font-weight:800">내용보기</a></span></label>
+        <button class="submit" type="submit">상담신청 제출하기</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>AI Agent Lab Landing Page Sample</div>
+      <div>※ 본 파일은 참고 사이트 구조를 바탕으로 제작한 샘플 랜딩페이지입니다.</div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <div class="floating-inner">
+      <a class="btn btn-ghost" href="tel:01053942535">전화문의 010-5394-2535</a>
+      <a class="btn btn-primary" href="#apply">상담신청</a>
+    </div>
+  </div>
+
+  <div class="modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-card">
+      <button class="close-modal" id="privacyClose">닫기</button>
+      <h3 id="privacyTitle">개인정보 수집 및 이용 동의</h3>
+      <p>상담 안내를 위해 이름, 연락처, 이메일, 문의내용을 수집합니다. 수집된 정보는 교육 상담 및 안내 목적 외에는 사용하지 않습니다.</p>
+      <ul>
+        <li>수집항목: 이름, 연락처, 이메일, 문의내용</li>
+        <li>수집목적: 교육과정 상담 및 안내</li>
+        <li>보유기간: 상담 목적 달성 후 또는 관련 법령에 따른 보관기간까지</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => item.classList.toggle('active'));
+    });
+
+    document.getElementById('leadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      // 1) 아래 값에 Apps Script 배포 후 발급받은 웹앱 URL을 넣으면 구글시트로 전송됩니다.
+      // 2) 예: https://script.google.com/macros/s/AKfycb.../exec
+      const GOOGLE_SCRIPT_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+
+      if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL'){
+        alert('Apps Script 웹앱 URL이 아직 입력되지 않았습니다. HTML 파일의 GOOGLE_SCRIPT_URL 값을 교체해주세요.');
+        return;
+      }
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = '전송 중입니다...';
+
+      try{
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method:'POST',
+          mode:'no-cors',
+          headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body:JSON.stringify({...data, submittedAt:new Date().toISOString(), page:location.href})
+        });
+        alert('상담신청이 접수되었습니다.');
+        form.reset();
+      }catch(err){
+        alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+      }finally{
+        submitButton.disabled = false;
+        submitButton.textContent = '상담신청 제출하기';
+      }
+    });
+  </script>
+</body>
+</html>
