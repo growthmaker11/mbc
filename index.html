@@ -1186,6 +1186,15 @@ src="https://www.facebook.com/tr?id=1561616058638984&ev=PageView&noscript=1"
             <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" required />
           </div>
 
+<label for="email">이메일 주소 *</label>
+<input
+  type="email"
+  id="email"
+  name="email"
+  placeholder="example@email.com"
+  required
+/>
+          
           <div class="field">
             <label for="course">관심 과정</label>
             <select id="course" name="course">
@@ -1417,6 +1426,7 @@ src="https://www.facebook.com/tr?id=1561616058638984&ev=PageView&noscript=1"
       payload.append("timestamp", new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
       payload.append("name", formData.get("name") || "");
       payload.append("phone", formData.get("phone") || "");
+      payload.append("email", formData.get("email") || "");
       payload.append("course", formData.get("course") || "");
       payload.append("message", formData.get("message") || "");
       payload.append("confirm", formData.get("confirm") === "on" ? "동의" : "미동의");
